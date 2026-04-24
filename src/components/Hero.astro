@@ -1,0 +1,159 @@
+---
+const content = {
+  de: {
+    brand: "THE ATELIER",
+    nav: [
+      { label: "METHODE", href: "#" },
+      { label: "ANGEBOTE", href: "#" },
+      { label: "ÜBER MICH", href: "#" },
+      { label: "MAGAZIN", href: "#" },
+      { label: "KONTAKT", href: "#" }
+    ],
+    headline: "Struktur.\nTiefe. Veränderung.",
+    body: `Hypnotherapie ist ein präziser, wissenschaftlich fundierter Prozess.
+Im Atelier arbeiten wir mit einer klaren Methode,
+die Bewusstsein, Nervensystem und emotionale Prägungen nachhaltig verändert.`,
+    location: "Zürich & Online",
+    cta: "ERSTGESPRÄCH BUCHEN"
+  }
+};
+
+const t = content.de;
+---
+
+
+<section class="hero-site">
+  <div class="hero-glow"></div>
+  <nav class="nav">
+   <a href="/" class="logo">
+  {t.brand}
+</a>
+   <div class="nav-">
+  {t.nav.map((item) => (
+    <a href={item.href} class="nav-link">
+      {item.label}
+    </a>
+  ))}
+   <button class="cta">
+  {t.cta}
+</button>
+</div>
+ 
+  </nav>
+
+<section class="hero">
+  <div class="hero-title">
+    <h1>{t.headline}</h1>
+
+    <p class="body">{t.body}</p>
+    <p class="location">{t.location}</p>
+
+    <button class="hero-cta">{t.cta}</button>
+  </div>
+
+  <div class="hero-image">
+    <img src="/portrait.webp" alt="portrait image" />
+  </div>
+
+
+</section>
+
+<style>
+  .hero-site{  background-color: #F6F4F1;padding:32px 42px;position:relative;.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }}
+  .nav a{
+    font-size:14px;
+    padding:24px;
+  }
+  .nav .logo{
+    font-size:24px;
+    font-family: "Cormorant Garamond", serif;
+    padding:24px 0;
+  }
+  .nav button{ padding:14px 28px;
+
+  }
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  position: relative;
+  padding-top:120px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.hero-title {
+  max-width: 640px;
+  text-align: left;
+}
+
+.hero-title h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
+  white-space: pre-line;
+}
+.hero p{max-width: 640px;
+  color: #4A4A4A;
+}
+.hero p:first-of-type{
+  margin-top:32px;
+}
+.hero p:last-of-type {
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+button{
+  background-color:#8C7560;
+  color: #FFFFFF;
+  border:none;
+  border-radius:2px;
+  padding:14px 28px;
+ 
+
+}
+
+.hero-image {
+  overflow: hidden;
+  align-self: stretch;
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 78%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 6%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(to bottom, black 78%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 6%);
+  mask-composite: intersect;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: brightness(1.02) saturate(0.92) contrast(0.95);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.20) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 95% 5%,  rgba(248, 250, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 100% 0%, rgba(245, 248, 255, 0.07) 0%, transparent 80%);
+  z-index: 0;
+}
+
+.nav,
+.hero-title,
+.hero-image {
+  position: relative;
+  z-index: 1;
+}
+</style>
